@@ -5,7 +5,7 @@ function Nav({ itens }) {
   return (
     <aside
       id="navbar"
-      className="fixed h-screen bg-gray-900 right-0 w-1/3 duration-500 z-10"
+      className="fixed h-screen bg-gray-900 right-0 w-screen xl:w-1/3 md:w-1/2 translate-x-full duration-500 z-10"
     >
       <div className="flex w-full justify-between items-center my-5 px-10 h-16">
         <h2 className="text-gray-100 text-xl font-bold">Categorias</h2>
@@ -23,7 +23,7 @@ function Nav({ itens }) {
       <ul className="w-full flex flex-col justify-center items-start gap-5 px-16">
         {itens.map((item) => (
           <li className="hover:scale-105 hover:bg-gray-600 duration-500 rounded w-full flex justify-start items-center">
-            <button className="text-gray-100 flex justify-center items-center p-2">{item}</button>
+            <button className="text-gray-100 flex justify-start items-center p-2 w-full">{item}</button>
           </li>
         ))}
       </ul>
