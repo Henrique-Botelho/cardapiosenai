@@ -1,7 +1,7 @@
 import React from "react";
 import { RiCloseFill } from "react-icons/ri";
 
-function Nav({ itens }) {
+function Nav({ itens, setCategoria, categorias }) {
   return (
     <aside
       id="navbar"
@@ -15,6 +15,7 @@ function Nav({ itens }) {
             document
               .getElementById("navbar")
               .classList.toggle("translate-x-full");
+            setCategoria(categorias);
           }}
         >
           <RiCloseFill className="text-gray-100 h-full" size={32} />
@@ -23,7 +24,17 @@ function Nav({ itens }) {
       <ul className="w-full flex flex-col justify-center items-start gap-5 px-16">
         {itens.map((item) => (
           <li className="hover:scale-105 hover:bg-gray-600 duration-500 rounded w-full flex justify-start items-center">
-            <button className="text-gray-100 flex justify-start items-center p-2 w-full">{item}</button>
+            <button
+              onClick={() => {
+                setCategoria([item]);
+                document
+                  .getElementById("navbar")
+                  .classList.toggle("translate-x-full");
+              }}
+              className="text-gray-100 flex justify-start items-center p-2 w-full"
+            >
+              {item}
+            </button>
           </li>
         ))}
       </ul>
