@@ -33,7 +33,7 @@ function Nav({ itens, setCategoria, categorias }) {
               }}
               className="text-gray-100 flex justify-start items-center p-2 w-full"
             >
-              {item}
+              {item[0].toUpperCase() + item.substring(1)}
             </button>
           </li>
         ))}
