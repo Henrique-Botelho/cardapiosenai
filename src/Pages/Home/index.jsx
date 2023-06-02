@@ -60,7 +60,7 @@ function Home() {
                       return (
                         <div
                           key={item.id}
-                          className="bg-white border w-96 flex justify-center items-center rounded p-2 h-32"
+                          className="bg-white border w-full sm:w-96 flex justify-center items-center rounded p-2 h-32"
                         >
                           <div className="flex flex-col justify-center items-start w-1/2 gap-3">
                             <span className="text-xl font-bold text-gray-800 opacity-80">
