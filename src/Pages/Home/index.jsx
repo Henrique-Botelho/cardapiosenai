@@ -5,6 +5,8 @@ import Header from "../../components/Header";
 import Nav from "../../components/Nav";
 import imagemFundo from "../../assets/fundo.png";
 
+import { VscLoading } from "react-icons/vsc";
+
 function Home() {
   const backgroundImageStyle = {
     backgroundImage: `url('${imagemFundo}')`,
@@ -14,6 +16,7 @@ function Home() {
   const [categorias, setCategorias] = useState([]);
   const [produtos, setProdutos] = useState([]);
   const [load, setLoad] = useState(false);
+  const [status, setStatus] = useState(true);
 
   useEffect(() => {
     api
@@ -21,13 +24,26 @@ function Home() {
       .then((resp) => {
         let { data } = resp;
         const vetor = data.map((item) => item.categoria);
-        setCategorias(vetor);
-        setCategoria(vetor);
+        setCategorias(vetor); // Dados estáticos
+        setCategoria(vetor); // Dados dinâmicos
         return api.get("/produtos");
       })
       .then((resp) => {
         let { data } = resp;
         setProdutos(data);
+      })
+      .catch(error => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.data.message);
+          setStatus('Ocorreu um erro inesperado.');
+        } else if (error.request) {
+          console.log(error.request);
+          setStatus('Servidor fora do ar.');
+        } else {
+          console.log(error);
+          setStatus('Ocorreu um erro inesperado.');
+        }
       })
       .finally(() => setLoad(true));
   }, []);
@@ -45,7 +61,7 @@ function Home() {
           itens={categorias}
         />
         <main className="container top-20 fixed bottom-0 overflow-y-scroll flex flex-col gap-3 p-3">
-          {categoria.map((categoria, index) => {
+          {status === true ? categoria.map((categoria, index) => {
             return (
               <div
                 className="w-full flex flex-col justify-center items-center lg:items-start"
@@ -82,7 +98,7 @@ function Home() {
                 </div>
               </div>
             );
-          })}
+          }) : <span className="text-gray-100">{status}</span>}
         </main>
       </div>
     );
@@ -94,8 +110,8 @@ function Home() {
       >
         <Header />
         <Nav itens={["Salgados", "Doces", "Bebidas"]} />
-        <main className="container top-20 fixed h-full overflow-y-scroll flex">
-          <h1>Carregando</h1>
+        <main className="container top-20 bottom-0 fixed overflow-y-scroll flex justify-center items-center">
+          <VscLoading size={50} className="text-gray-100 animate-spin" />
         </main>
       </div>
     );
