@@ -4,6 +4,7 @@ import api from "../../api";
 import Header from "../../components/Header";
 import Nav from "../../components/Nav";
 import imagemFundo from "../../assets/fundo.png";
+import Zap from "../../components/Zap";
 
 import { VscLoading } from "react-icons/vsc";
 
@@ -54,6 +55,7 @@ function Home() {
         style={backgroundImageStyle}
         className="w-screen h-screen flex justify-center items-center"
       >
+        <Zap />
         <Header />
         <Nav
           categorias={categorias}
