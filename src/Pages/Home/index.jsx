@@ -86,15 +86,15 @@ function Home() {
                           key={item.id}
                           className="bg-gray-100 border w-full flex flex-col justify-center items-center rounded p-2 h-32"
                         >
-                          <span className="w-full text-lg font-bold text-gray-800 opacity-80">
+                          <span className="w-full tracking-widest text-lg font-bold text-gray-800 opacity-80">
                             {item.nome[0].toUpperCase() +
                               item.nome.substring(1)}
                           </span>
-                          <span className="text-gray-500 w-full h-full">
+                          <span className="text-gray-500 tracking-wide w-full h-full">
                             {item.descricao[0].toUpperCase() +
                               item.descricao.substring(1)}
                           </span>
-                          <span className="w-full text-right whitespace-nowrap text-lg text-gray-800 font-bold opacity-80">
+                          <span className="w-full tracking-widest text-right whitespace-nowrap text-lg text-gray-800 font-bold opacity-80">
                             R$ {item.preco.toFixed(2).replace(".", ",")}
                           </span>
                         </div>
