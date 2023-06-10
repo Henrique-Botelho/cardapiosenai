@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'cherrybomb': ['Cherry Bomb One', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }

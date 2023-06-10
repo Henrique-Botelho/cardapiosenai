@@ -5,6 +5,9 @@ import Header from "../../components/Header";
 import Nav from "../../components/Nav";
 import imagemFundo from "../../assets/fundo.png";
 import Zap from "../../components/Zap";
+import Panel from "../../components/Panel";
+import About from "../../components/About";
+import Footer from "../../components/Footer";
 
 import { VscLoading } from "react-icons/vsc";
 
@@ -62,35 +65,35 @@ function Home() {
           setCategoria={setCategoria}
           itens={categorias}
         />
-        <main className="container top-20 fixed bottom-0 overflow-y-scroll flex flex-col gap-3 p-3">
+        <main className="container top-20 fixed bottom-0 overflow-y-scroll flex flex-col gap-3 p-3 pb-0">
+          <Panel />
+          <About />
           {status === true ? categoria.map((categoria, index) => {
             return (
               <div
                 className="w-full flex flex-col justify-center items-center lg:items-start"
                 key={index}
               >
-                <h3 className="text-gray-800 w-full my-3 text-2xl bg-yellow-500 p-2 sm:w-96 sm:text-center lg:text-left lg:w-72  rounded">
+                <h3 className="text-yellow-500 font-cherrybomb tracking-wide w-full my-3 text-3xl text-center md:text-left p-2 rounded">
                   {categoria[0].toUpperCase() + categoria.substring(1)}
                 </h3>
-                <div className="w-full flex justify-center lg:justify-start items-center gap-3 flex-wrap">
+                <div className="w-full flex justify-center sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center gap-1 flex-wrap">
                   {produtos.map((item) => {
                     if (item.categoria == categoria) {
                       return (
                         <div
                           key={item.id}
-                          className="bg-white border w-full sm:w-96 flex justify-center items-center rounded p-2 h-32"
+                          className="bg-white border w-full flex flex-col justify-center items-center rounded p-2 h-32"
                         >
-                          <div className="flex flex-col justify-center items-start w-1/2 gap-3">
-                            <span className="text-xl font-bold text-gray-800 opacity-80">
-                              {item.nome[0].toUpperCase() +
-                                item.nome.substring(1)}
-                            </span>
-                            <span className="text-gray-500">
-                              {item.descricao[0].toUpperCase() +
-                                item.descricao.substring(1)}
-                            </span>
-                          </div>
-                          <span className="w-1/2 flex justify-end items-center text-xl text-gray-800 font-bold opacity-80">
+                          <span className="w-full text-lg font-bold text-gray-800 opacity-80">
+                            {item.nome[0].toUpperCase() +
+                              item.nome.substring(1)}
+                          </span>
+                          <span className="text-gray-500 w-full h-full">
+                            {item.descricao[0].toUpperCase() +
+                              item.descricao.substring(1)}
+                          </span>
+                          <span className="w-full text-right whitespace-nowrap text-lg text-gray-800 font-bold opacity-80">
                             R$ {item.preco.toFixed(2).replace(".", ",")}
                           </span>
                         </div>
@@ -101,6 +104,7 @@ function Home() {
               </div>
             );
           }) : <span className="text-gray-100">{status}</span>}
+          <Footer />
         </main>
       </div>
     );
@@ -111,7 +115,6 @@ function Home() {
         className="w-screen h-screen flex justify-center items-center "
       >
         <Header />
-        <Nav itens={["Salgados", "Doces", "Bebidas"]} />
         <main className="container top-20 bottom-0 fixed overflow-y-scroll flex justify-center items-center">
           <VscLoading size={50} className="text-gray-100 animate-spin" />
         </main>
