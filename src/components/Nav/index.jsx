@@ -1,10 +1,7 @@
 import React from "react";
 import { RiCloseFill } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
 
 function Nav({ itens, setCategoria, categorias }) {
-  const navigate = useNavigate();
-
   return (
     <aside
       id="navbar"
