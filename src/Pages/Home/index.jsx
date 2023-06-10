@@ -84,7 +84,7 @@ function Home() {
                       return (
                         <div
                           key={item.id}
-                          className="bg-white border w-full flex flex-col justify-center items-center rounded p-2 h-32"
+                          className="bg-gray-100 border w-full flex flex-col justify-center items-center rounded p-2 h-32"
                         >
                           <span className="w-full text-lg font-bold text-gray-800 opacity-80">
                             {item.nome[0].toUpperCase() +

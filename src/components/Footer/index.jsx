@@ -6,13 +6,13 @@ import { AiOutlineInstagram, AiOutlineFacebook, AiOutlineGithub } from "react-ic
 function Footer() {
   return (
     <footer className="w-full">
-      <div className="w-full flex sm:flex-row flex-col bg-gray-800 p-2 rounded-t">
+      <div className="w-full flex sm:flex-row flex-col bg-gray-800 p-2 gap-3 sm:gap-0 rounded-t">
         <div className="hidden w-60 md:flex flex-col justify-center items-center">
           <BsShop size={20} className="text-gray-100" />
           <h2 className="text-gray-100 text-sm">Cantina SENAI</h2>
         </div>
         <div className="w-full">
-          <h3 className="w-full text-gray-300 text-lg pb-3">Equipe</h3>
+          <h3 className="w-full text-gray-300 text-lg pb-3">Desenvolvedores</h3>
           <ul className="grid grid-cols-2 grid-rows-5 md:grid-cols-3">
             <li className="text-gray-500">Abner</li>
             <li className="text-gray-500">Álvaro</li>
