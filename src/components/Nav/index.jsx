@@ -1,7 +1,10 @@
 import React from "react";
 import { RiCloseFill } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 function Nav({ itens, setCategoria, categorias }) {
+  const navigate = useNavigate();
+
   return (
     <aside
       id="navbar"
@@ -24,7 +27,8 @@ function Nav({ itens, setCategoria, categorias }) {
       <ul className="w-full flex flex-col gap-5 px-16">
         {itens.map((item) => (
           <li className="hover:scale-105 hover:bg-gray-600 duration-500 rounded w-full h-10">
-            <button
+            <a
+              href="#conteudo"
               onClick={() => {
                 setCategoria([item]);
                 document
@@ -34,7 +38,7 @@ function Nav({ itens, setCategoria, categorias }) {
               className="text-gray-100 w-full h-full flex items-center justify-start p-2"
             >
               {item[0].toUpperCase() + item.substring(1)}
-            </button>
+            </a>
           </li>
         ))}
       </ul>

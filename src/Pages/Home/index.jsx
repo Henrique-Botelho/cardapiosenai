@@ -71,6 +71,7 @@ function Home() {
           {status === true ? categoria.map((categoria, index) => {
             return (
               <div
+                id="conteudo"
                 className="w-full flex flex-col justify-center items-center lg:items-start"
                 key={index}
               >
