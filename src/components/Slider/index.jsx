@@ -10,6 +10,8 @@ import {
 } from "react-icons/md";
 
 function Slider() {
+  let x, y;
+
   const imgs = [
     {
       img: imagem1,
@@ -55,8 +57,30 @@ function Slider() {
     }
   };
 
+  const handleTouchStar = (e) => {
+    var touch = e.changedTouches[0];
+    x = touch.pageX;
+    y = touch.pageY;
+  };
+  const handleTouchMove = (e) => {
+    var touch = e.changedTouches[0];
+    x = touch.pageX - x;
+    y = touch.pageY - y;
+    if (Math.abs(x) > Math.abs(y)) {
+      if (x < 0) {
+        nextIndex();
+      } else {
+        prevsIndex();
+      }
+    }
+  };
+
   return (
-    <div className="w-full bg-gray-900 rounded">
+    <div
+      className="w-full bg-gray-900 rounded"
+      onTouchStart={handleTouchStar}
+      onTouchMove={handleTouchMove}
+    >
       <div
         style={backgroundImageStyle}
         className="w-full h-[70vh] relative duration-500"
@@ -72,10 +96,7 @@ function Slider() {
           onClick={nextIndex}
         />
         <div className="absolute bottom-10 w-full text-center font-cherrybomb tracking-wide">
-          <h4
-            id="comStroke"
-            className="text-yellow-500 text-3xl sm:text-5xl"
-          >
+          <h4 id="comStroke" className="text-yellow-500 text-3xl sm:text-5xl">
             {imgs[imgIndex].tit}
           </h4>
           <span id="comStroke" className="text-gray-100 text-lg">
