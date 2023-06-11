@@ -2,7 +2,7 @@ import React from "react";
 
 function Panel() {
   return (
-    <div className="w-full">
+    <div className="w-full p-5">
       <div className="h-[75vh] flex flex-col justify-center items-center gap-3">
         <h1 className="text-yellow-500 text-center font-cherrybomb tracking-wider text-4xl">
         Cantina SENAI

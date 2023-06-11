@@ -2,6 +2,7 @@
 
 *::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 *::-webkit-scrollbar-track {
@@ -12,6 +13,11 @@
 *::-webkit-scrollbar-thumb {
   background-color: rgb(107, 114, 128);
   border-radius: 10px;
+}
+
+#comStroke {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
 }
 
 @tailwind components;
