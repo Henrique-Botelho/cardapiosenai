@@ -8,7 +8,6 @@ import Zap from "../../components/Zap";
 import Panel from "../../components/Panel";
 import About from "../../components/About";
 import Footer from "../../components/Footer";
-import Slider from "../../components/Slider";
 
 import { VscLoading } from "react-icons/vsc";
 
@@ -68,7 +67,6 @@ function Home() {
         />
         <main className="container top-20 fixed bottom-0 overflow-y-scroll flex flex-col gap-3 pb-0">
           <Panel />
-          <Slider />
           <div className="w-full p-3 space-y-3">
             {status === true ? categoria.map((categoria, index) => {
               return (
